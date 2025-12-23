@@ -326,10 +326,39 @@ function debounce(func, wait) {
 }
 
 function showSuccess(message) {
-  alert(message); // In a real app, use a toast notification library
+  showToast(message, 'success');
 }
 
 function showError(message) {
-  alert('Error: ' + message); // In a real app, use a toast notification library
+  showToast(message, 'error');
+}
+
+function showToast(message, type = 'success') {
+  // Remove any existing toasts
+  const existingToast = document.querySelector('.toast');
+  if (existingToast) {
+    existingToast.remove();
+  }
+
+  // Create toast element
+  const toast = document.createElement('div');
+  toast.className = `toast toast-${type}`;
+  toast.textContent = message;
+
+  // Add to body
+  document.body.appendChild(toast);
+
+  // Trigger animation
+  setTimeout(() => {
+    toast.classList.add('show');
+  }, 10);
+
+  // Remove after 3 seconds
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => {
+      toast.remove();
+    }, 300);
+  }, 3000);
 }
 
