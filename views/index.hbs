@@ -1,0 +1,106 @@
+<div class="page-header">
+  <h2>Appointments</h2>
+  <button class="btn btn-primary" id="newAppointmentBtn">+ New Appointment</button>
+</div>
+
+<div class="filters">
+  <div class="filter-group">
+    <label for="filterStatus">Status:</label>
+    <select id="filterStatus" class="filter-select">
+      <option value="">All</option>
+      <option value="scheduled">Scheduled</option>
+      <option value="completed">Completed</option>
+      <option value="cancelled">Cancelled</option>
+      <option value="no-show">No-Show</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <label for="filterDoctor">Doctor:</label>
+    <input type="text" id="filterDoctor" class="filter-input" placeholder="Search by doctor name">
+  </div>
+
+  <div class="filter-group">
+    <label for="filterDate">Date:</label>
+    <input type="date" id="filterDate" class="filter-input">
+  </div>
+
+  <button class="btn btn-secondary" id="clearFiltersBtn">Clear Filters</button>
+</div>
+
+<div id="appointmentsContainer" class="appointments-grid">
+  <div class="empty-state" id="emptyState">
+    <p>No appointments found. Create your first appointment to get started.</p>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="appointmentModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 id="modalTitle">New Appointment</h3>
+      <button class="modal-close" id="closeModal">&times;</button>
+    </div>
+    <form id="appointmentForm">
+      <input type="hidden" id="appointmentId">
+      
+      <div class="form-group">
+        <label for="patientName">Patient Name *</label>
+        <input type="text" id="patientName" name="patientName" required>
+      </div>
+
+      <div class="form-group">
+        <label for="patientEmail">Patient Email *</label>
+        <input type="email" id="patientEmail" name="patientEmail" required>
+      </div>
+
+      <div class="form-group">
+        <label for="patientPhone">Patient Phone *</label>
+        <input type="tel" id="patientPhone" name="patientPhone" required>
+      </div>
+
+      <div class="form-group">
+        <label for="doctorName">Doctor Name *</label>
+        <input type="text" id="doctorName" name="doctorName" required>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="appointmentDate">Date *</label>
+          <input type="date" id="appointmentDate" name="appointmentDate" required>
+        </div>
+
+        <div class="form-group">
+          <label for="appointmentTime">Time *</label>
+          <input type="time" id="appointmentTime" name="appointmentTime" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="reason">Reason for Visit *</label>
+        <textarea id="reason" name="reason" rows="3" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="status">Status *</label>
+        <select id="status" name="status" required>
+          <option value="scheduled">Scheduled</option>
+          <option value="completed">Completed</option>
+          <option value="cancelled">Cancelled</option>
+          <option value="no-show">No-Show</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="notes">Notes</label>
+        <textarea id="notes" name="notes" rows="2"></textarea>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="saveBtn">Save Appointment</button>
+      </div>
+    </form>
+  </div>
+</div>
+

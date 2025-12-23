@@ -1,0 +1,46 @@
+<div class="appointment-card" data-id="{{_id}}">
+  <div class="card-header">
+    <h3>{{patientName}}</h3>
+    <span class="status-badge status-{{status}}">{{status}}</span>
+  </div>
+  
+  <div class="card-body">
+    <div class="card-info">
+      <span class="label">Doctor:</span>
+      <span class="value">{{doctorName}}</span>
+    </div>
+    
+    <div class="card-info">
+      <span class="label">Date:</span>
+      <span class="value">{{formatDate appointmentDate}} at {{appointmentTime}}</span>
+    </div>
+    
+    <div class="card-info">
+      <span class="label">Email:</span>
+      <span class="value">{{patientEmail}}</span>
+    </div>
+    
+    <div class="card-info">
+      <span class="label">Phone:</span>
+      <span class="value">{{patientPhone}}</span>
+    </div>
+    
+    <div class="card-info">
+      <span class="label">Reason:</span>
+      <span class="value">{{reason}}</span>
+    </div>
+    
+    {{#if notes}}
+    <div class="card-info">
+      <span class="label">Notes:</span>
+      <span class="value">{{notes}}</span>
+    </div>
+    {{/if}}
+  </div>
+  
+  <div class="card-footer">
+    <button class="btn btn-sm btn-secondary edit-btn" data-id="{{_id}}">Edit</button>
+    <button class="btn btn-sm btn-danger delete-btn" data-id="{{_id}}">Delete</button>
+  </div>
+</div>
+
